@@ -5,11 +5,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RouterModule } from '@angular/router';
+import { ListComponent } from './list/list.component';
+import { TableComponent } from './list/table/table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfileComponent
+    ProfileComponent,
+    ListComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,RouterModule.forRoot([
