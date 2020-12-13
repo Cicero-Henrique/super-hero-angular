@@ -7,17 +7,19 @@ import { ProfileComponent } from './profile/profile.component';
 import { RouterModule } from '@angular/router';
 import { ListComponent } from './list/list.component';
 import { TableComponent } from './list/table/table.component';
+import { ListItemComponent } from './list/list-item/list-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
     ListComponent,
-    TableComponent
+    TableComponent,
+    ListItemComponent
   ],
   imports: [
     BrowserModule,RouterModule.forRoot([
-      { path: '', component: ProfileComponent },
+      { path: '', component: ListComponent },
     ]),
     HttpClientModule
   ],
