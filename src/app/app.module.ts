@@ -6,16 +6,12 @@ import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RouterModule } from '@angular/router';
 import { ListComponent } from './list/list.component';
-import { TableComponent } from './list/table/table.component';
-import { ListItemComponent } from './list/list-item/list-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
-    ListComponent,
-    TableComponent,
-    ListItemComponent
+    ListComponent
   ],
   imports: [
     BrowserModule,RouterModule.forRoot([
