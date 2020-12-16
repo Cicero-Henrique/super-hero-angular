@@ -4,8 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
-import { RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { ListComponent } from './list/list.component';
+
+const routes: Routes = [
+  { path: '', component: ListComponent },
+  { path: 'profile', component: ProfileComponent },
+];
 
 @NgModule({
   declarations: [
@@ -14,9 +19,7 @@ import { ListComponent } from './list/list.component';
     ListComponent
   ],
   imports: [
-    BrowserModule,RouterModule.forRoot([
-      { path: '', component: ListComponent },
-    ]),
+    BrowserModule,RouterModule.forRoot(routes),
     HttpClientModule
   ],
   providers: [],

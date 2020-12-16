@@ -1,12 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-declare interface Item {
-  name: string;
-  image: string;
-  publisher: string;
-  alignment: string;
-}
-
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',

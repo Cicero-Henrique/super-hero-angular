@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
   url = 'https://superheroapi.com/api/' + environment.ACCESS_TOKEN + '/70';
   name; eye; gender; hair; height; race; weight;
