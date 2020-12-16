@@ -1,13 +1,17 @@
 <div>
-    <div *ngFor="let item of info">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="{{item.image}}" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title"> {{ item.name }} </h5>
-                <p class="card-text"> {{ item.publisher }} </p>
-                <p class="card-text"> {{ item.alignment }} </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+    <table>
+        <div class="row" >
+            <div class="col-md-2" *ngFor="let item of info">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ item.image }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"> {{ item.name }} </h5>
+                        <p class="card-text"> {{ item.publisher }} </p>
+                        <p class="card-text"> {{ item.alignment }} </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </table>
 </div>
