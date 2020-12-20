@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { ActivatedRoute, ParamMap } from '@angular/router';;
 
 @Component({
   selector: 'app-profile',
@@ -9,9 +10,10 @@ import { environment } from 'src/environments/environment';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) {}
 
-  url = 'https://superheroapi.com/api/' + environment.ACCESS_TOKEN + '/70';
+  id: String;
+  url: string ;
   name; eye; gender; hair; height; race; weight;
   aliases; alignment; alterEgos; firstAppearance; fullName; placeOfBirth; publisher;
   connections; image; work; groupAffiliation; relatives;
@@ -20,6 +22,11 @@ export class ProfileComponent implements OnInit {
 
 
   async ngOnInit() {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.id = params.get('id');
+    });
+    this.url = 'https://superheroapi.com/api/' + environment.ACCESS_TOKEN + '/' +this.id;
+    console.log(this.url)
     let response = await this.makeRequest();
     this.name = response.name;
     this.eye = response.appearance['eye-color'];

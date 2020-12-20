@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-list',
@@ -7,11 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) {}
   public info = [];
+  heroes$: Observable<any>;
+  selectedId: number;
 
   async ngOnInit() {
     this.info = this.getHeroesInfo(await this.makeRequest());
+    
   }
 
   getHeroesInfo(heroes) {
@@ -21,7 +27,8 @@ export class ListComponent implements OnInit {
         'name': hero.name,
         'image': hero.images.md,
         'publisher': hero.biography.publisher,
-        'alignment': hero.biography.alignment
+        'alignment': hero.biography.alignment,
+        'id': hero.id
       }
       infos.push(item);
     });

@@ -8,10 +8,11 @@
                         <h5 class="card-title"> {{ item.name }} </h5>
                         <p class="card-text"> {{ item.publisher }} </p>
                         <p class="card-text"> {{ item.alignment }} </p>
-                        <a href="#" routerLink="/profile" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" [routerLink]="['/profile', item.id]"  class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
             </div>
         </div>
     </table>
 </div>
+<router-outlet></router-outlet>
