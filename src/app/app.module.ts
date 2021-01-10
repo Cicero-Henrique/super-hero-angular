@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ListComponent } from './list/list.component';
+import { FilterComponent } from './list/filter/filter.component';
 
 const routes: Routes = [
   { path: '', component: ListComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     ProfileComponent,
-    ListComponent
+    ListComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,RouterModule.forRoot(routes),
