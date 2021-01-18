@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { isEmpty, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-list',
@@ -10,14 +10,15 @@ import { switchMap } from 'rxjs/operators';
 })
 export class ListComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) { }
   public info = [];
   heroes$: Observable<any>;
   selectedId: number;
+  genders = [];
 
   async ngOnInit() {
     this.info = this.getHeroesInfo(await this.makeRequest());
-    
+    // console.log(this.genders);
   }
 
   getHeroesInfo(heroes) {
@@ -28,9 +29,23 @@ export class ListComponent implements OnInit {
         'image': hero.images.md,
         'publisher': hero.biography.publisher,
         'alignment': hero.biography.alignment,
-        'id': hero.id
+        'id': hero.id,
+        'gender': hero.appearance.gender,
+        'race': hero.appearance.race
       }
       infos.push(item);
+      // let exist = false;
+      // if (this.genders.length > 0) {
+      //   for (let i = 0; i < this.genders.length; i++) {
+      //     if (String(item.race).localeCompare(this.genders[i]) == 0) {
+      //       exist = true;
+      //     }
+      //   }
+      // }
+      // if (exist == false) {
+      //   console.log(item.race);
+      //   this.genders.push(item.race);
+      // }
     });
     return infos;
   }

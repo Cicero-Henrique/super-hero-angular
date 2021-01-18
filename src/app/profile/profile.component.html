@@ -1,32 +1,155 @@
-<div class="col-sm-2">
-    <p>{{ name }}</p>
-    <p> -- Appearance </p>
-    <p>{{ name }} </p>
-    <p>{{ eye }} </p>
-    <p>{{ gender }} </p>
-    <p>{{ hair }} </p>
-    <p>{{ height }} </p>
-    <p>{{ race }} </p>
-    <p>{{ weight }} </p>
-    <p>{{ aliases }} </p>
-    <p>{{ alignment }} </p>
-    <p>{{ alterEgos }} </p>
-    <p>{{ firstAppearance }} </p>
-    <p>{{ fullName }} </p>
-    <p>{{ placeOfBirth }} </p>
-    <p>{{ publisher }} </p>
-    <p>{{ groupAffiliation }} </p>
-    <p>{{ relatives }} </p>
-    <p>{{ image }} </p>
-</div>
-<div class="col-sm-2">
-    <img src="{{ image }}" alt="{{ name }}">
-    <p> --  powerstats  </p>
-    <p> {{ combat }} </p>
-    <p> {{ durability }} </p>
-    <p> {{ intelligence }} </p>
-    <p> {{ power }} </p>
-    <p> {{ speed }} </p>
-    <p> {{ strength }} </p>
-    <p>{{ work }} </p>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img src="{{ image }}" alt="{{ name }}">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <h5>
+                        {{ name }}
+                    </h5>
+                    <h6>
+                        {{ fullName }}
+                    </h6>
+                    <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" (click)="changeTab(1)">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" (click)="changeTab(2)">Timeline</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-work">
+                    <p>APPEARANCE</p>
+                    <a>Gender: {{ gender }}</a><br />
+                    <a>Race: {{ race }}</a><br />
+                    <a>Hair Color: {{ hair }}</a>
+                    <a>Eye Color: {{ eye }}</a><br />
+                    <a>Height: {{ height }}</a><br />
+                    <a>Weight: {{ weight }}</a><br />
+                    <p>BIOGRAPHY</p>
+                    <a>Publisher: {{ publisher }} </a><br />
+                    <a>Alignment: {{ alignment }} </a><br />
+                    <a>Alter Egos: {{ alterEgos }}</a><br />
+                    <a>Aliases: {{ aliases }}</a><br />
+                    <a>First Appearance: {{ firstAppearance }} </a><br />
+                    <a>Place of birth: {{ placeOfBirth }}</a><br />
+
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="tab-content powerstats-tab" id="myTabContent">
+                    <div *ngIf="selectedTab == 1">
+                        <h4>
+                            Work
+                        </h4>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Occupation</label>
+                            </div>
+                            <div class="col-md-10">
+                                <p>{{ occupation }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Base</label>
+                            </div>
+                            <div class="col-md-10">
+                                <p>{{ base }}</p>
+                            </div>
+                        </div>
+                        <h4>
+                            Connections
+                        </h4>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Group Affiliation</label>
+                            </div>
+                            <div class="col-md-10">
+                                <p> {{ groupAffiliation }} </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Relatives</label>
+                            </div>
+                            <div class="col-md-10">
+                                <p> {{ relatives }} </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="selectedTab == 2">
+                        <div class="row">
+                            <h4>
+                                Powerstats
+                            </h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Intelligence</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{ intelligence }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Strength</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{ strength }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Speed</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{ speed }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Durability</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{ durability }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Power</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{ power }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Combat</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{ combat }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>

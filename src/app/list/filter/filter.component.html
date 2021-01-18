@@ -2,12 +2,85 @@
     <header>
         <h2> Filter </h2>
     </header>
-    <div class="form-group row">
-        <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail3" placeholder="Search">
-        </div>
+    <div class="input-group">
+        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+            aria-describedby="search-addon" />
+        <span class="input-group-text border-0" id="search-addon">
+            <i class="fas fa-search"></i>
+        </span>
     </div>
-    <a href="#" class="w3-bar-item w3-button">Link 1</a>
-    <a href="#" class="w3-bar-item w3-button">Link 2</a>
-    <a href="#" class="w3-bar-item w3-button">Link 3</a>
+    <div>
+        <a>Alignment</a>
+        <ul class="filter-alignment-list">
+            <li class="form-check">
+                <input type="checkbox" class="form-check-input" id="goodCheck">
+                <label class="form-check-label" for="goodCheck">Good</label>
+            </li>
+            <li class="form-check">
+                <input type="checkbox" class="form-check-input" id="badCheck">
+                <label class="form-check-label" for="badCheck">Bad</label>
+            </li>
+            <li class="form-check">
+                <input type="checkbox" class="form-check-input" id="noneCheck">
+                <label class="form-check-label" for="noneCheck">-</label>
+            </li>
+            <li class="form-check">
+                <input type="checkbox" class="form-check-input" id="neutralCheck">
+                <label class="form-check-label" for="neutralCheck">Neutral</label>
+            </li>
+        </ul>
+        <a>Gender</a>
+        <ul class="filter-alignment-list">
+            <li class="form-check">
+                <input type="checkbox" class="form-check-input" id="maleCheck">
+                <label class="form-check-label" for="maleCheck">Male</label>
+            </li>
+            <li class="form-check">
+                <input type="checkbox" class="form-check-input" id="femaleCheck">
+                <label class="form-check-label" for="femaleCheck">Female</label>
+            </li>
+            <li class="form-check">
+                <input type="checkbox" class="form-check-input" id="noneCheck">
+                <label class="form-check-label" for="noneCheck">-</label>
+            </li>
+        </ul>
+        <a>Publisher</a>
+        <ul class="filter-alignment-list">
+            <li class="form-check">
+                <input type="checkbox" class="form-check-input" id="marvelCheck">
+                <label class="form-check-label" for="marvelCheck">Marvel Comics</label>
+            </li>
+            <li class="form-check">
+                <input type="checkbox" class="form-check-input" id="darkhCheck">
+                <label class="form-check-label" for="darkhCheck">Dark Horse Comics</label>
+            </li>
+            <li class="form-check">
+                <input type="checkbox" class="form-check-input" id="dcCheck">
+                <label class="form-check-label" for="dcCheck">DC Comics</label>
+            </li>
+            <li class="form-check">
+                <input type="checkbox" class="form-check-input" id="nbcCheck">
+                <label class="form-check-label" for="nbcCheck">NBC - Heroes</label>
+            </li>
+            <li class="form-check">
+                <input type="checkbox" class="form-check-input" id="syfyCheck">
+                <label class="form-check-label" for="syfyCheck">Syfy</label>
+            </li>
+            <li class="form-check">
+                <input type="checkbox" class="form-check-input" id="georgelucasCheck">
+                <label class="form-check-label" for="georgelucasCheck">George Lucas</label>
+            </li>
+            <li class="form-check">
+                <input type="checkbox" class="form-check-input" id="jkrCheck">
+                <label class="form-check-label" for="jkrCheck">J. K. Rowling</label>
+            </li>
+            <li class="form-check">
+                <input type="checkbox" class="form-check-input" id="jrrtolkienCheck">
+                <label class="form-check-label" for="jrrtolkienCheck">J. R. R. Tolkien</label>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <button (click)="toFilter()"> Filter </button>
+    </div>
 </div>

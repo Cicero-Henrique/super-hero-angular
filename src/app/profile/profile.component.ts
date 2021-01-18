@@ -19,9 +19,10 @@ export class ProfileComponent implements OnInit {
   connections; image; work; groupAffiliation; relatives;
   combat; durability; intelligence; power; speed; strength;
   base; occupation; x;
-
+  selectedTab : number;
 
   async ngOnInit() {
+    this.selectedTab = 1;
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get('id');
     });
@@ -64,5 +65,13 @@ export class ProfileComponent implements OnInit {
       }
     });
     return response.json();
+  }
+
+  changeTab(number:number) {
+    if(number == 1) {
+      this.selectedTab = 1;
+    } else {
+      this.selectedTab = 2;
+    }
   }
 }
