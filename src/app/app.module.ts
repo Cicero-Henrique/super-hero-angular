@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ListComponent } from './list/list.component';
+import { ListComponentService } from './list/list.component.service';
 import { FilterComponent } from './list/filter/filter.component';
 
 const routes: Routes = [
@@ -24,7 +25,7 @@ const routes: Routes = [
     BrowserModule,RouterModule.forRoot(routes),
     HttpClientModule
   ],
-  providers: [],
+  providers: [ListComponentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
