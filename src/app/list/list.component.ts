@@ -17,5 +17,4 @@ export class ListComponent implements OnInit {
   async ngOnInit() {
     this.info = this.listService.getHeroesInfo(await this.listService.makeRequest());
   }
-
 }

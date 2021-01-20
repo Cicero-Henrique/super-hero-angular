@@ -12,18 +12,6 @@ export class ListComponentService {
         'race': hero.appearance.race
       }
       infos.push(item);
-      // let exist = false;
-      // if (this.genders.length > 0) {
-      //   for (let i = 0; i < this.genders.length; i++) {
-      //     if (String(item.race).localeCompare(this.genders[i]) == 0) {
-      //       exist = true;
-      //     }
-      //   }
-      // }
-      // if (exist == false) {
-      //   console.log(item.race);
-      //   this.genders.push(item.race);
-      // }
     });
     return infos;
   }
@@ -40,7 +28,12 @@ export class ListComponentService {
     return response.json();
   }
 
-  toFilter(checkboxes) {
-    console.log(checkboxes);
+  async toFilter(checkboxes, heroes) {
+    let info = [];
+    info = this.getHeroesInfo(await this.makeRequest());
+    info = info.filter(hero => hero.gender == 'Female');
+    info = info.filter(hero => hero.alignment == 'bad');
+    console.log(info);
+    return info;
   }
 }

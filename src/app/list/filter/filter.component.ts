@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ListComponent } from '../list.component';
 import { ListComponentService } from '../list.component.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ListComponentService } from '../list.component.service';
 })
 export class FilterComponent implements OnInit {
 
-  constructor(private listService: ListComponentService) { }
+  constructor(private listService: ListComponentService, private listComponent: ListComponent) { }
   teste: number;
 
   ngOnInit(): void {}
@@ -54,6 +55,7 @@ export class FilterComponent implements OnInit {
         actives.push(checkboxes[i]);
       }
     }
-    this.listService.toFilter(actives);
+
+    this.listComponent.info = await this.listService.toFilter(actives, []);
   }
 }
