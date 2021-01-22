@@ -28,12 +28,71 @@ export class ListComponentService {
     return response.json();
   }
 
-  async toFilter(checkboxes, heroes) {
+  filterByAlignments(alignments, allHeroes) {
+    let heroes = [];
+    if(alignments.length == 1) {
+      for(let i = 0; i < alignments.length; i++) {
+        heroes = allHeroes.filter(hero => hero.alignment == alignments[i]);
+      }
+    } else {
+      if(alignments.length > 1) {
+        let aux = [];
+        for(let i = 0; i < alignments.length; i++) {
+          aux = aux.concat(allHeroes.filter(hero => hero.alignment == alignments[i]));
+        }
+        heroes = aux;
+      }
+    }
+    return heroes;
+  }
+
+  filterByGenres(genres, allHeroes) {
+    let heroes = [];
+    if(genres.length == 1) {
+      for(let i = 0; i < genres.length; i++) {
+        heroes = allHeroes.filter(hero => hero.gender == genres[i]);
+      }
+    } else {
+      if(genres.length > 1) {
+        let aux = [];
+        for(let i = 0; i < genres.length; i++) {
+          aux = aux.concat(allHeroes.filter(hero => hero.gender == genres[i]));
+        }
+        heroes = aux;
+      }
+    }
+    return heroes;
+  }
+  filterByPublishers(publishers, allHeroes) {
+    let heroes = [];
+    if(publishers.length == 1) {
+      for(let i = 0; i < publishers.length; i++) {
+        heroes = allHeroes.filter(hero => hero.publisher == publishers[i]);
+      }
+    } else {
+      if(publishers.length > 1) {
+        let aux = [];
+        for(let i = 0; i < publishers.length; i++) {
+          aux = aux.concat(allHeroes.filter(hero => hero.gender == publishers[i]));
+        }
+        heroes = aux;
+      }
+    }
+    return heroes;
+  }
+
+  async toFilter(alignments, genres, publishers) {
     let info = [];
     info = this.getHeroesInfo(await this.makeRequest());
-    info = info.filter(hero => hero.gender == 'Female');
-    info = info.filter(hero => hero.alignment == 'bad');
-    console.log(info);
+    if(alignments.length > 0) {
+      info = this.filterByAlignments(alignments, info);
+    }
+    if(genres.length > 0) {
+      info = this.filterByGenres(genres, info);
+    }
+    if(publishers.length > 0) {
+      info = this.filterByPublishers(publishers, info);
+    }
     return info;
   }
 }
