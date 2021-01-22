@@ -73,7 +73,7 @@ export class ListComponentService {
       if (publishers.length > 1) {
         let aux = [];
         for (let i = 0; i < publishers.length; i++) {
-          aux = aux.concat(allHeroes.filter(hero => hero.gender == publishers[i]));
+          aux = aux.concat(allHeroes.filter(hero => hero.publisher == publishers[i]));
         }
         heroes = aux;
       }
