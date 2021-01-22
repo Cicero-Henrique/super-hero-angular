@@ -12,7 +12,7 @@ export class FilterComponent implements OnInit {
   constructor(private listService: ListComponentService, private listComponent: ListComponent) { }
   teste: number;
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   async getFilters() {
     const alignmentGood = <HTMLInputElement>document.getElementById("goodCheck");
@@ -34,52 +34,57 @@ export class FilterComponent implements OnInit {
     let alignments = [];
     let genres = [];
     let publishers = [];
-    if(alignmentGood.checked) {
+    if (alignmentGood.checked) {
       alignments.push('good');
     }
-    if(alignmentBad.checked) {
+    if (alignmentBad.checked) {
       alignments.push('bad');
     }
-    if(alignmentNone.checked) {
+    if (alignmentNone.checked) {
       alignments.push('-');
     }
-    if(alignmentNeutral.checked) {
+    if (alignmentNeutral.checked) {
       alignments.push('neutral');
     }
-    if(genderMale.checked) {
+    if (genderMale.checked) {
       genres.push('Male');
     }
-    if(genderFemale.checked) {
+    if (genderFemale.checked) {
       genres.push('Female');
     }
-    if(genderNone.checked) {
+    if (genderNone.checked) {
       genres.push('-');
     }
-    if(publisherMarvel.checked) {
+    if (publisherMarvel.checked) {
       publishers.push('Marvel Comics');
     }
-    if(publisherDarkhorse.checked) {
+    if (publisherDarkhorse.checked) {
       publishers.push('Dark Horse Comics');
     }
-    if(publisherDc.checked) {
+    if (publisherDc.checked) {
       publishers.push('DC Comics');
     }
-    if(publisherNbc.checked) {
+    if (publisherNbc.checked) {
       publishers.push('NBC - Heroes');
     }
-    if(publisherSyfy.checked) {
+    if (publisherSyfy.checked) {
       publishers.push('SyFy');
     }
-    if(publisherGeorgelucas.checked) {
+    if (publisherGeorgelucas.checked) {
       publishers.push('George Lucas');
     }
-    if(publisherJkr.checked) {
+    if (publisherJkr.checked) {
       publishers.push('J. K. Rowling');
     }
-    if(publisherJrrt.checked) {
+    if (publisherJrrt.checked) {
       publishers.push('J. R. R. Tolkien');
     }
 
     this.listComponent.info = await this.listService.toFilter(alignments, genres, publishers);
+  }
+
+  async search() {
+    const search = <HTMLInputElement>document.getElementById('search-input');
+    this.listComponent.info = await this.listService.searchByName(search.value);
   }
 }
