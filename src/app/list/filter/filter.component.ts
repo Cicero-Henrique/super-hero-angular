@@ -81,10 +81,13 @@ export class FilterComponent implements OnInit {
     }
 
     this.listComponent.info = await this.listService.toFilter(alignments, genres, publishers);
+    this.listComponent.createTable(this.listComponent.info);
   }
 
   async search() {
     const search = <HTMLInputElement>document.getElementById('search-input');
     this.listComponent.info = await this.listService.searchByName(search.value);
+    console.log(this.listComponent.info);
+    this.listComponent.createTable(this.listComponent.info);
   }
 }
