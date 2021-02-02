@@ -28,7 +28,7 @@ export class ListComponent implements OnInit {
     image.alt = "Card image cap";
 
     let cardBody = document.createElement('div');
-    cardBody.className = "card-body";
+    cardBody.className = "card text-white bg-dark mb-3";
 
     let h = document.createElement("h5");
     h.className = "card-title";
