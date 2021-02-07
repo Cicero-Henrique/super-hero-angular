@@ -1,88 +1,93 @@
-<div id="main" style="background-color: rgb(250, 250, 250);" >
+<div id="main" style="background-color: rgb(250, 250, 250);" class="rounded">
     <header>
-        <h2> Filter </h2>
+        <h2> Search </h2>
     </header>
     <div class="input-group">
-        <div class="form-outline">
-            <input id="search-input" type="search" class="form-control" />
-            <label class="form-label" for="form1">Search</label>
-        </div>
-        <button id="search-button" type="button" class="btn btn-primary" (click)="search()">
-            <i class="fas fa-search"></i>
-        </button>
+        <input id="search-input" type="search" class="form-control rounded" placeholder="Hero" aria-label="Search"
+          aria-describedby="search-addon" />
+        <button id="search-button" type="button" class="btn btn-outline-primary" (click)="search()">search</button>
+      </div>
+    <div class="filter">
+        <header>
+            <h2> Filter </h2>
+        </header>
+        <section class="aggregation-block">
+            <a>Alignment</a>
+            <ul class="filter-alignment-list">
+                <li class="form-check">
+                    <input type="checkbox" class="form-check-input" id="goodCheck">
+                    <label class="form-check-label" for="goodCheck">Good</label>
+                </li>
+                <li class="form-check">
+                    <input type="checkbox" class="form-check-input" id="badCheck">
+                    <label class="form-check-label" for="badCheck">Bad</label>
+                </li>
+                <li class="form-check">
+                    <input type="checkbox" class="form-check-input" id="alignmentNoneCheck">
+                    <label class="form-check-label" for="alignmentNoneCheck">-</label>
+                </li>
+                <li class="form-check">
+                    <input type="checkbox" class="form-check-input" id="neutralCheck">
+                    <label class="form-check-label" for="neutralCheck">Neutral</label>
+                </li>
+            </ul>
+        </section>
+        <section class="aggregation-block">
+            <a>Gender</a>
+            <ul class="filter-alignment-list">
+                <li class="form-check">
+                    <input type="checkbox" class="form-check-input" id="maleCheck">
+                    <label class="form-check-label" for="maleCheck">Male</label>
+                </li>
+                <li class="form-check">
+                    <input type="checkbox" class="form-check-input" id="femaleCheck">
+                    <label class="form-check-label" for="femaleCheck">Female</label>
+                </li>
+                <li class="form-check">
+                    <input type="checkbox" class="form-check-input" id="genderNoneCheck">
+                    <label class="form-check-label" for="genderNoneCheck">-</label>
+                </li>
+            </ul>
+        </section>
+        <section class="aggregation-block">
+            <a>Publisher</a>
+            <ul class="filter-alignment-list">
+                <li class="form-check">
+                    <input type="checkbox" class="form-check-input" id="marvelCheck">
+                    <label class="form-check-label" for="marvelCheck">Marvel Comics</label>
+                </li>
+                <li class="form-check">
+                    <input type="checkbox" class="form-check-input" id="darkhCheck">
+                    <label class="form-check-label" for="darkhCheck">Dark Horse Comics</label>
+                </li>
+                <li class="form-check">
+                    <input type="checkbox" class="form-check-input" id="dcCheck">
+                    <label class="form-check-label" for="dcCheck">DC Comics</label>
+                </li>
+                <li class="form-check">
+                    <input type="checkbox" class="form-check-input" id="nbcCheck">
+                    <label class="form-check-label" for="nbcCheck">NBC - Heroes</label>
+                </li>
+                <li class="form-check">
+                    <input type="checkbox" class="form-check-input" id="syfyCheck">
+                    <label class="form-check-label" for="syfyCheck">Syfy</label>
+                </li>
+                <li class="form-check">
+                    <input type="checkbox" class="form-check-input" id="georgelucasCheck">
+                    <label class="form-check-label" for="georgelucasCheck">George Lucas</label>
+                </li>
+                <li class="form-check">
+                    <input type="checkbox" class="form-check-input" id="jkrCheck">
+                    <label class="form-check-label" for="jkrCheck">J. K. Rowling</label>
+                </li>
+                <li class="form-check">
+                    <input type="checkbox" class="form-check-input" id="jrrtolkienCheck">
+                    <label class="form-check-label" for="jrrtolkienCheck">J. R. R. Tolkien</label>
+                </li>
+            </ul>
+        </section>
     </div>
     <div>
-        <a>Alignment</a>
-        <ul class="filter-alignment-list">
-            <li class="form-check">
-                <input type="checkbox" class="form-check-input" id="goodCheck">
-                <label class="form-check-label" for="goodCheck">Good</label>
-            </li>
-            <li class="form-check">
-                <input type="checkbox" class="form-check-input" id="badCheck">
-                <label class="form-check-label" for="badCheck">Bad</label>
-            </li>
-            <li class="form-check">
-                <input type="checkbox" class="form-check-input" id="alignmentNoneCheck">
-                <label class="form-check-label" for="alignmentNoneCheck">-</label>
-            </li>
-            <li class="form-check">
-                <input type="checkbox" class="form-check-input" id="neutralCheck">
-                <label class="form-check-label" for="neutralCheck">Neutral</label>
-            </li>
-        </ul>
-        <a>Gender</a>
-        <ul class="filter-alignment-list">
-            <li class="form-check">
-                <input type="checkbox" class="form-check-input" id="maleCheck">
-                <label class="form-check-label" for="maleCheck">Male</label>
-            </li>
-            <li class="form-check">
-                <input type="checkbox" class="form-check-input" id="femaleCheck">
-                <label class="form-check-label" for="femaleCheck">Female</label>
-            </li>
-            <li class="form-check">
-                <input type="checkbox" class="form-check-input" id="genderNoneCheck">
-                <label class="form-check-label" for="genderNoneCheck">-</label>
-            </li>
-        </ul>
-        <a>Publisher</a>
-        <ul class="filter-alignment-list">
-            <li class="form-check">
-                <input type="checkbox" class="form-check-input" id="marvelCheck">
-                <label class="form-check-label" for="marvelCheck">Marvel Comics</label>
-            </li>
-            <li class="form-check">
-                <input type="checkbox" class="form-check-input" id="darkhCheck">
-                <label class="form-check-label" for="darkhCheck">Dark Horse Comics</label>
-            </li>
-            <li class="form-check">
-                <input type="checkbox" class="form-check-input" id="dcCheck">
-                <label class="form-check-label" for="dcCheck">DC Comics</label>
-            </li>
-            <li class="form-check">
-                <input type="checkbox" class="form-check-input" id="nbcCheck">
-                <label class="form-check-label" for="nbcCheck">NBC - Heroes</label>
-            </li>
-            <li class="form-check">
-                <input type="checkbox" class="form-check-input" id="syfyCheck">
-                <label class="form-check-label" for="syfyCheck">Syfy</label>
-            </li>
-            <li class="form-check">
-                <input type="checkbox" class="form-check-input" id="georgelucasCheck">
-                <label class="form-check-label" for="georgelucasCheck">George Lucas</label>
-            </li>
-            <li class="form-check">
-                <input type="checkbox" class="form-check-input" id="jkrCheck">
-                <label class="form-check-label" for="jkrCheck">J. K. Rowling</label>
-            </li>
-            <li class="form-check">
-                <input type="checkbox" class="form-check-input" id="jrrtolkienCheck">
-                <label class="form-check-label" for="jrrtolkienCheck">J. R. R. Tolkien</label>
-            </li>
-        </ul>
-    </div>
-    <div>
-        <button (click)="getFilters()"> Filter </button>
+        <button class="btn btn-outline-primary" id="filter-button" (click)="getFilters()"> Filter </button>
     </div>
 </div>

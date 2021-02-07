@@ -21,6 +21,7 @@ export class ListComponent implements OnInit {
   createCard(hero) {
     let card = document.createElement('div');
     card.className = "card";
+    card.id = "card-id"
 
     let image = document.createElement('img');
     image.className = "card-img-top w-100 d-block";
