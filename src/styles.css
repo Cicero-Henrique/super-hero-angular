@@ -11,10 +11,12 @@ body {
 }
 .card-group {
   margin-bottom: 10px;
-  text-align: center
+  text-align: center;
 }
 #card-id {
   margin-left: 10px;
+  max-width: 200px;
+  max-height: 500px;
 }
 
 .form-check {
