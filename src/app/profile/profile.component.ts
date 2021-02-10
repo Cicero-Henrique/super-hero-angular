@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
   combat; durability; intelligence; power; speed; strength;
   base; occupation; x;
   selectedTab : number;
+  average: number;
 
   async ngOnInit() {
     this.selectedTab = 1;
@@ -45,14 +46,16 @@ export class ProfileComponent implements OnInit {
     this.groupAffiliation = response.connections['group-affiliation'];
     this.relatives = response.connections.relatives;
     this.image = response.image.url;
-    this.combat = response.powerstats.combat;
-    this.durability = response.powerstats.durability;
-    this.intelligence = response.powerstats.intelligence;
-    this.power = response.powerstats.power;
-    this.speed = response.powerstats.speed;
-    this.strength = response.powerstats.strength;
+    this.combat =       Number(response.powerstats.combat);
+    this.durability =   Number(response.powerstats.durability);
+    this.intelligence = Number(response.powerstats.intelligence);
+    this.power =        Number(response.powerstats.power);
+    this.speed =        Number(response.powerstats.speed);
+    this.strength =     Number(response.powerstats.strength);
     this.base = response.work.base;
     this.occupation = response.work.occupation;
+    this.average = Number(((this.intelligence + this.strength + this.speed + this.durability + this.power + this.combat)/6).toFixed(0));
+
 
   }
 
