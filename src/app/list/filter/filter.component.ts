@@ -10,7 +10,6 @@ import { ListComponentService } from '../list.component.service';
 export class FilterComponent implements OnInit {
 
   constructor(private listService: ListComponentService, private listComponent: ListComponent) { }
-  teste: number;
 
   ngOnInit(): void { }
 
