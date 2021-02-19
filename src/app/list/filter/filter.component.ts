@@ -86,7 +86,6 @@ export class FilterComponent implements OnInit {
   async search() {
     const search = <HTMLInputElement>document.getElementById('search-input');
     this.listComponent.info = await this.listService.searchByName(search.value);
-    console.log(this.listComponent.info);
     this.listComponent.createTable(this.listComponent.info);
   }
 }

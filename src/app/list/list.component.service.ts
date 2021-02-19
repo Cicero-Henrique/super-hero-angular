@@ -63,6 +63,7 @@ export class ListComponentService {
     }
     return heroes;
   }
+
   filterByPublishers(publishers, allHeroes) {
     let heroes = [];
     if (publishers.length == 1) {
