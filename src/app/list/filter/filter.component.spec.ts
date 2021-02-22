@@ -1,5 +1,9 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
+import { ListComponent } from '../list.component';
+import { ListComponentService } from '../list.component.service';
 import { FilterComponent } from './filter.component';
 
 describe('FilterComponent', () => {
@@ -8,7 +12,9 @@ describe('FilterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FilterComponent ]
+      imports: [HttpClientTestingModule, RouterTestingModule],
+      declarations: [ FilterComponent ],
+      providers: [ListComponent, ListComponentService]
     })
     .compileComponents();
   });
@@ -19,7 +25,7 @@ describe('FilterComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create filter component', () => {
     expect(component).toBeTruthy();
   });
 });

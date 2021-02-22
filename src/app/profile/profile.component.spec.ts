@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProfileComponent } from './profile.component';
+import { ActivatedRoute, convertToParamMap } from '@angular/router';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -8,9 +9,17 @@ describe('ProfileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfileComponent ]
+      declarations: [ProfileComponent],
+      providers: [{
+        provide: ActivatedRoute,
+        useValue: {
+          snapshot: {
+            paramMap: convertToParamMap({ id: '289' })
+          }
+        }
+      }]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +28,17 @@ describe('ProfileComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', async() => {
     expect(component).toBeTruthy();
+  });
+
+  it('should make the request for a profile', async() => {
+    let hero = await component.makeRequest();
+    expect(hero.name).toEqual('Goku');
+  });
+
+  it('should change tab', async() => {
+    component.changeTab(1);
+    expect(component.selectedTab).toEqual(1);
   });
 });

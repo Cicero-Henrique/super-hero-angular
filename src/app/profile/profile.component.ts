@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { ActivatedRoute, ParamMap } from '@angular/router';;
+import { ActivatedRoute } from '@angular/router';;
 
 @Component({
   selector: 'app-profile',
@@ -24,9 +23,8 @@ export class ProfileComponent implements OnInit {
 
   async ngOnInit() {
     this.selectedTab = 1;
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      this.id = params.get('id');
-    });
+    this.id = this.route.snapshot.paramMap.get('id');
+
     this.url = 'https://superheroapi.com/api/' + environment.ACCESS_TOKEN + '/' + this.id;
     let response = await this.makeRequest();
     this.name = response.name;
