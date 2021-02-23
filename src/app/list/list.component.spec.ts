@@ -10,24 +10,28 @@ describe('ListComponent', () => {
   let component: ListComponent;
   let fixture: ComponentFixture<ListComponent>;
   let listService: ListComponentService;
+  let filterComponent: FilterComponent;
 
   beforeEach(() => { listService = new ListComponentService(); });
 
+  
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, RouterTestingModule],
       declarations: [ListComponent, FilterComponent],
       providers: [ListComponentService]
     })
-      .compileComponents();
+    .compileComponents();
   });
-
+  
   beforeEach(() => {
     fixture = TestBed.createComponent(ListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
+  
+  beforeEach(() => { filterComponent = new FilterComponent(listService, component); });
+  
   it('should create', () => {
     expect(component).toBeTruthy();
   });
@@ -58,4 +62,23 @@ describe('ListComponent', () => {
     expect(heroes[0].name).toEqual('Riddler');
   });
 
+  it('should filter by filter component', async () => {
+    const alignmentGood = <HTMLInputElement>document.getElementById("goodCheck");
+    const genderMale = <HTMLInputElement>document.getElementById("maleCheck");
+    const publisherMarvel = <HTMLInputElement>document.getElementById("marvelCheck");
+
+    alignmentGood.checked = true;
+    genderMale.checked = true;
+    publisherMarvel.checked = true;
+
+    await filterComponent.getFilters();
+    expect(component.info[81].name).toEqual('Spider-Man');
+  });
+
+  it('should search a name by filter component', async () => {
+    const search = <HTMLInputElement>document.getElementById('search-input');
+    search.value = 'Zatanna';
+    await filterComponent.search();
+    expect(component.info[0].name).toEqual('Zatanna');
+  });
 });
