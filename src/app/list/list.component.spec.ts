@@ -14,24 +14,24 @@ describe('ListComponent', () => {
 
   beforeEach(() => { listService = new ListComponentService(); });
 
-  
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, RouterTestingModule],
       declarations: [ListComponent, FilterComponent],
       providers: [ListComponentService]
     })
-    .compileComponents();
+      .compileComponents();
   });
-  
+
   beforeEach(() => {
     fixture = TestBed.createComponent(ListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  
+
   beforeEach(() => { filterComponent = new FilterComponent(listService, component); });
-  
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });

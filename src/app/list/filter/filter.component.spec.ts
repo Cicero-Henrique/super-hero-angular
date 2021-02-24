@@ -13,10 +13,10 @@ describe('FilterComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, RouterTestingModule],
-      declarations: [ FilterComponent ],
+      declarations: [FilterComponent],
       providers: [ListComponent, ListComponentService]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

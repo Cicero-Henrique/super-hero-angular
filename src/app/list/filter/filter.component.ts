@@ -33,6 +33,7 @@ export class FilterComponent implements OnInit {
     let alignments = [];
     let genres = [];
     let publishers = [];
+
     if (alignmentGood.checked) {
       alignments.push('good');
     }
