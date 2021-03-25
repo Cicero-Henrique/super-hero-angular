@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
 
 ## Superhero API
-You will need an access token for API and you can get it on [SuperHero API](https://superheroapi.com/) .
+You will need an access token for API and you can get it on [SuperHero API](https://superheroapi.com/) . Create a file named ".env" and insert your API token, eg.:  ` ACCESS_TOKEN=your token ` .
 
 ## Development server
 
@@ -22,3 +22,15 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Docker
+
+To execute the application using the Node in a Docker container, you can use the docker-compose. Eg.:
+
+```
+
+docker-compose -f "docker-compose.yml"  build
+docker-compose up
+google-chrome --disable-web-security --disable-gpu --user-data-dir=~/chromeTemp
+
+```
